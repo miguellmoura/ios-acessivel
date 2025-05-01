@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func somaButton(_ sender: UIButton) {
         
+        resultadoLabel.isHidden = false
+        
         resultadoLabel.textColor = UIColor { trait in
             trait.userInterfaceStyle == .dark ? .systemYellow : .orange
         }
@@ -32,6 +34,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
+        
+        somaLabel.accessibilityLabel = "Olá! Esse é um app para realizar a soma de dois números! Digite os dois números no campo de texto e aperte no botão para ver o resultado!" 
+        
+        resultadoLabel.isHidden = true
         
         somaLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         somaLabel.adjustsFontForContentSizeCategory = true
@@ -55,6 +61,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             trait.userInterfaceStyle == .dark ? .black : .white
         }
         
+        num1TextField.layer.cornerRadius = 30
+        num2TextField.layer.cornerRadius = 30
+        
         num1TextField.attributedPlaceholder = NSAttributedString(
             string : "Número 1",
             attributes: [.foregroundColor: UIColor { trait in
@@ -77,6 +86,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         resultadoLabel.adjustsFontForContentSizeCategory = true
         
         somaButton.accessibilityTraits = .button
+        somaButton.layer.cornerRadius = 5
         
         num1TextField.accessibilityTraits = .keyboardKey
         num2TextField.accessibilityTraits = .keyboardKey
