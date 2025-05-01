@@ -44,8 +44,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         view.backgroundColor = .systemBackground
         
-        somaLabel.accessibilityLabel = "Olá! Esse é um app para realizar a soma de dois números! Digite os dois números no campo de texto e aperte no botão para ver o resultado!"
-        
         resultadoLabel.isHidden = true
         
         somaLabel.font = UIFont.preferredFont(forTextStyle: .headline)
@@ -100,6 +98,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         num1TextField.accessibilityTraits = .keyboardKey
         num2TextField.accessibilityTraits = .keyboardKey
         
+        somaLabel.isAccessibilityElement = true
+
+        somaLabel.accessibilityLabel = "Olá! Esse é um app para realizar a soma de dois números! Digite os dois números no campo de texto e aperte no botão para ver o resultado!"
+        
         num1TextField.accessibilityHint = "Digite o primeiro número para somar"
         
         num2TextField.accessibilityHint = "Digite o segundo número para somar"
@@ -110,7 +112,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         resultadoLabel.accessibilityLabel = "Resultado da soma"
         
-        view.accessibilityElements = [num1TextField!, num2TextField!, somaButton!, resultadoLabel!]
+        view.accessibilityElements = [somaLabel!, num1TextField!, num2TextField!, somaButton!, resultadoLabel!]
         
     }
 }
