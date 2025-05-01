@@ -15,7 +15,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func somaButton(_ sender: UIButton) {
         
+        num1TextField.delegate = self
+        
+        num1TextField.endEditing(true)
+        num2TextField.endEditing(true)
+        
         resultadoLabel.isHidden = false
+        
+        resultadoLabel.font = .boldSystemFont(ofSize: 24)
         
         resultadoLabel.textColor = UIColor { trait in
             trait.userInterfaceStyle == .dark ? .systemYellow : .orange
@@ -35,7 +42,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         
-        somaLabel.accessibilityLabel = "Olá! Esse é um app para realizar a soma de dois números! Digite os dois números no campo de texto e aperte no botão para ver o resultado!" 
+        view.backgroundColor = .systemBackground
+        
+        somaLabel.accessibilityLabel = "Olá! Esse é um app para realizar a soma de dois números! Digite os dois números no campo de texto e aperte no botão para ver o resultado!"
         
         resultadoLabel.isHidden = true
         
